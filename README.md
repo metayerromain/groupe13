@@ -6,4 +6,4 @@
 * BACK Office (gestion d'articles, galerie photos, gestion des tendances, marques..?)
 
 ## COMMANDE POUR SE CONNECTER A MYSQL
-`mysql -h localhost -u root -p roadr;
+`mysql -h localhost -u root -p roadr;`
