@@ -7,3 +7,6 @@
 
 ## COMMANDE POUR SE CONNECTER A MYSQL
 `mysql -h localhost -u root -p roadr;`
+
+## COMMANDE POUR MODIFIER LE MOT DE PASSE
+`mysqladmin -u root -p password 'motdepasse'`
