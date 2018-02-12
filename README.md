@@ -4,3 +4,23 @@
 * FRONT Office (présentation du contenu de votre choix)
  Application regroupant toutes les avancées technologiques dan le milieu de l'automobile.
 * BACK Office (gestion d'articles, galerie photos, gestion des tendances, marques..?)
+
+## Installer Apache 2.4
+
+* [Installation](https://httpd.apache.org/download.cgi#apache24)
+
+**Etape 1** : extraire le dossier dans le répertoire C:
+
+**Etape 2** : ouvrir le fichier `httpd.conf` se trouvant dans le répertoire `C:\Apache24\conf`
+
+**Etape 3** :
+
+Remplacer l'élément se trouvant à la ligne **213** par `ServerAdmin admin@localhost`
+
+Remplacer l'élément se trouvant à la ligne **222** par `ServerName localhost:8000`
+
+**Etape 4** : Ouvrer le terminal et diriger vous dans `C:\Apache24\bin>`
+
+**Etape 5** : Lancer la commande `httpd -k install` si cela marche pas faites `httpd -k start`
+
+It works!Maintenant que vous avez installez, faites le test, écrire dans l'url `localhost`. Et Normalement vous avez le text `It works!` qui s'affiche, vous avez réussi l'installation.
