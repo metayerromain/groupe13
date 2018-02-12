@@ -1,13 +1,29 @@
-<!DOCTYPE html>
-<html>
+<?php
+/**
+ * Database connection
+ * @param $conn PDO
+ * @param $exception
+ * return $conn ou $exception
+ */
+try {
+    $conn = new PDO('mysql:host=127.0.0.1; dbname=roadr', 'root', 'motdepasse');
+} catch(PDOException $exception) {
+    die($exception->getMessage());
+}
 
-<head>
-  <meta charset="utf-8">
-  <title>salut</title>
-</head>
+$sql = "SELECT * FROM article";
 
-<body>
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+?>
 
-</body>
+<table>
+    <?php while (false !== $row = $stmt->fetch(PDO::FETCH_ASSOC)) :?>
+        <tr>
+            <td><?=$row["id"]?></td>
+            <td><?=$row["titre"]?></td>
+            <td><?=$row["date"]?></td>
+        </tr>
+    <?php endwhile;?>
+</table>
 
-</html>
