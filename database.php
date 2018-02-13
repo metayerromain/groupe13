@@ -11,4 +11,3 @@ try {
 } catch(PDOException $exception) {
     die($exception->getMessage());
 }
-

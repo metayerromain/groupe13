@@ -11,17 +11,17 @@ require_once('database.php');
 if (isset($_GET['id'])) // On a le nom et le prénom
 {
     $id = $_GET['id'];
-
-    $query = $bdd->prepare("DELETE FROM events WHERE id = :id");
-    $query->bindParam(":id", $id);
-    $query->execute();
-
-    echo 'l\'article numéro ' .$_GET['id']. ' à bien été supprimé';
-    echo "<br/>";
-    echo "<a href='events.php'>Retour à l'accueil</a>";
-
 }
 else // Il manque des paramètres, on avertit le visiteur
 {
     echo 'Il faut renseigner l\'id !';
 }
+?>
+<form method="POST" action="dodelete.php">
+    <p>ETES VOUS SUR DE SUPPRIMER L'ARTICLE "<?=$_GET['id'];?>"</p>
+    <a href="admin.php">NON</a>
+    <input type="hidden" name="id" value="<?=$_GET['id'];?>">
+    <input type="submit" value="OUI">
+</form>
+
+

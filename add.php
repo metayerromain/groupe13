@@ -26,6 +26,6 @@ $req->execute(array(
 	'img' => $image
 	));
 
-    header('Location: events.php');
+    header('Location: admin.php');
 
 ?>
