@@ -7,10 +7,11 @@
  * return $conn ou $exception
  */
 require_once('database.php');
-$sql = "SELECT * FROM article";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
+
+$query = $bdd->prepare("SELECT * FROM events");
+$query->execute();
 ?>
+
 <html lang="en">
 
 <head>
@@ -25,10 +26,11 @@ $stmt->execute();
 <body>
   <section class="admin">
     <h1 class="admin_title">Administrateur</h1>
-    <div class="admin_addarticle">
-      <p class="admin_addarticle_item">Ajouter un article</p>
+      <div class="admin_addarticle">
+          <a href="form.html"><p class="admin_addarticle_item">Ajouter un article</p></a>
       <p class="admin_addarticle_item "><a class="--border_radius"href="">+</a></p>
     </div>
+
     <div class="admin_section">
       <div class="admin_section_title">
         <h2 class="admin_section_title_item"><a class="link" href="#">Articles</a></h2>
@@ -47,16 +49,24 @@ $stmt->execute();
             <td class="table_column">supprimer</td>
           </tr>
         <!-- METTRE SA DATABASE ICI -->
-        <?php while (false !== $row = $stmt->fetch(PDO::FETCH_ASSOC)) :?>
+        <?php
+        while($row = $query->fetch()) {
+            $id = $row["id"];
+            $title = $row["titre"];
+            $lieu = $row["lieu"];
+            $date = $row["date"];
+
+            echo "
             <tr>
-                <td class="table_id"><a href=""><?=$row["id"]?></a></td>
-                <td class="table_column"><a href=""><?=$row["title"]?></a></td>
-                <td class="table_column"><a href=""><?=$row["author"]?></a></td>
-                <td class="table_column"><a href=""><?=$row["date_publication"]?></a></td>
-                <td class="table_column"><a href="">modifier</a></td>
-                <td class="table_column"><a href="">supprimer</a></td>
-            </tr>
-        <?php endwhile;?>
+                <td class='table_id'><a href=''>$id</a></td>
+                <td class='table_column'><a href=''>$title</a></td>
+                <td class='table_column'><a href=''>$lieu</a></td>
+                <td class='table_column'><a href=''>$date</a></td>
+                <td class='table_column'><a href='modifier.php?id=$id'>modifier</a></td>
+                <td class='table_column'><a href='delete.php?id=$id'>supprimer</a></td>
+            </tr>";
+        }
+        ?>
           </table>
 
         </form>
