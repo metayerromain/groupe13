@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Database connection
@@ -6,9 +7,7 @@
  * return $conn ou $exception
  */
 require_once('database.php');
-
 $sql = "SELECT * FROM article";
-
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 ?>
@@ -23,4 +22,3 @@ $stmt->execute();
         </tr>
     <?php endwhile;?>
 </table>
-
