@@ -7,8 +7,7 @@
  */
 
 try {
-    $bdd = new PDO('mysql:host=127.0.0.1; dbname=roadr', 'root', 'motdepasse');
+    $bdd = new PDO('mysql:host=127.0.0.1; dbname=roadr', 'root', 'root');
 } catch(PDOException $exception) {
     die($exception->getMessage());
 }
-

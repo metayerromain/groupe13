@@ -6,12 +6,7 @@
  * @param $exception
  * return $conn ou $exception
  */
-try {
-    $conn = new PDO('mysql:host=127.0.0.1; dbname=roadr', 'root', 'root');
-} catch(PDOException $exception) {
-    die($exception->getMessage());
-}
-
+require_once('database.php');
 $sql = "SELECT * FROM article";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
