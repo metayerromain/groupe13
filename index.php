@@ -5,11 +5,7 @@
  * @param $exception
  * return $conn ou $exception
  */
-try {
-    $conn = new PDO('mysql:host=127.0.0.1; dbname=roadr', 'root', 'motdepasse');
-} catch(PDOException $exception) {
-    die($exception->getMessage());
-}
+require_once('database.php');
 
 $sql = "SELECT * FROM article";
 
@@ -23,6 +19,7 @@ $stmt->execute();
             <td><?=$row["id"]?></td>
             <td><?=$row["titre"]?></td>
             <td><?=$row["date"]?></td>
+            <td><?=$row["author"]?></td>
         </tr>
     <?php endwhile;?>
 </table>

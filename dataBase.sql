@@ -1,19 +1,23 @@
-CREATE SCHEMA `roadr`
-  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+/*CREATE SCHEMA `roadr`
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;*/
 
 
 CREATE TABLE IF NOT EXISTS `roadr`.`article` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `titre` VARCHAR(50) NOT NULL,
-  `img` VARCHAR(50) NOT NULL,
+  `titre` VARCHAR(250) NOT NULL,
+  `img` VARCHAR(250) NOT NULL,
   `date` VARCHAR(50) NOT NULL,
+  `author` VARCHAR(50) NOT NULL,
   `content` TEXT NOT NULL,
   PRIMARY KEY (`id`)
 );
 
-INSERT INTO
-  `article`
-  (`id`, `titre`, `date`, `content`, `img`)
-VALUES
-  (NULL, 'Bugatti', '12 fev 2018', 'le text sera ici', '')
-;
+CREATE TABLE IF NOT EXISTS `roadr`.`events` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `titre` VARCHAR(250) NOT NULL,
+  `lieu` VARCHAR(250) NOT NULL,
+  `date` VARCHAR(50) NOT NULL,
+  `description` VARCHAR(250) NOT NULL,
+  `image` VARCHAR(250) NOT NULL,
+  PRIMARY KEY (`id`)
+);
