@@ -5,11 +5,15 @@
  * @param $exception
  * return $conn ou $exception
  */
+
 try {
     $conn = new PDO('mysql:host=127.0.0.1; dbname=roadr', 'root', 'root');
 } catch(PDOException $exception) {
     die($exception->getMessage());
 }
+
+require_once('database.php');
+
 
 $sql = "SELECT * FROM article";
 $stmt = $conn->prepare($sql);
@@ -32,12 +36,19 @@ $stmt->execute();
 
     <?php while (false !== $row = $stmt->fetch(PDO::FETCH_ASSOC)) :?>
         <tr>
+<<<<<<< HEAD
             <td><a href=""><?=$row["id"]?></a></td>
             <td><a href=""><?=$row["titre"]?></a></td>
             <td><a href=""><?=$row["author"]?></a></td>
             <td><a href=""><?=$row["date_publication"]?></a></td>
             <td><a href="">Delete</a></td>
             <td><a href="">Modifier</a></td>
+=======
+            <td><?=$row["id"]?></td>
+            <td><?=$row["titre"]?></td>
+            <td><?=$row["date"]?></td>
+            <td><?=$row["author"]?></td>
+>>>>>>> 94033fc426244551412e3759b3399909d5bd47c4
         </tr>
     <?php endwhile;?>
 </table>
