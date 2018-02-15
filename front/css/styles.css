@@ -6,11 +6,16 @@ body {
   background-color: #02020B;
   overflow-x: hidden;
 }
-
+img{
+  /*width:100%;*/
+}
+.flexItem img {
+  width:100%;
+}
 /* SECTION HEADER NAV*/
 
 .container1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'montserrat', sans-serif;
   margin: 0 110px;
   font-weight: 300;
 }
@@ -28,7 +33,7 @@ body {
   width: 100%;
   position: fixed;
   font-size: 17px;
-  background: rgba(15, 49, 242, 0.2);
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .headerLogoimg {
@@ -108,14 +113,14 @@ body {
 .abosulute-text1 {
   position: absolute;
   bottom: 100px;
-  right: 500px;
+  /*right: 500px;*/
 }
 
 .textCarousel2 {
   font-family: 'Montserrat';
   margin-left: 30px;
   width: 100%;
-  font-size: 30px;
+  font-size: 26px;
   color: #fff;
   margin-top: 30px;
 }
@@ -303,7 +308,7 @@ body {
 .admin_section {
   display: flex;
   width: 100%;
-  height: 450px;
+  height: 500px;
 }
 
 .admin_section_title {
@@ -561,7 +566,9 @@ tr.rowContent td:last-child{
   font-size: 24px;
 }
 
-.read_description_item {}
+.flexItem span img{
+  width:100%;
+}
 
 .read_input_container {
   margin-top: 24px;

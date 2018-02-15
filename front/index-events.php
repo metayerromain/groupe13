@@ -25,8 +25,8 @@ $stmt->execute();
                       <thead>
                       <tr class="table_ligne">
                           <td class="table_img">image</td>
-                          <td class="table_column">titre</td>
-                          <td class="table_column"> auteur</td>
+                          <td class="table_column">Evènement</td>
+                          <td class="table_column">Lieu</td>
                           <td class="table_column">date</td>
                       </tr>
                       </thead>
@@ -38,8 +38,8 @@ $stmt->execute();
             $image = $row["image"];
             $lieu = $row["lieu"];
             $date = $row["date"];
-            if (strlen($row["titre"]) >= 14){
-                $title = mb_strimwidth($row["titre"], 0, 14);
+            if (strlen($row["titre"]) >= 16){
+                $title = mb_strimwidth($row["titre"], 0, 15);
             } else {
                 $title = $row["titre"];
             }

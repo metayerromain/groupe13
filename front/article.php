@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: romainmetayer
- * Date: 13/02/2018
- * Time: 00:55
- */
 
 require_once ('../helpers/database.php');
 
@@ -15,6 +9,13 @@ if (isset($_GET['id']))
     $query = $conn->prepare("SELECT * FROM `articles-table` WHERE id = :id");
     $query->bindParam(":id", $id);
     $query->execute();
+
+
+    $count = $query->rowCount();
+    if($count == 0) {
+        echo "L'article n'existe pas !";
+        exit;
+    }
 
     while($row = $query->fetch()) {
 
@@ -54,7 +55,7 @@ else
                 <li class="listItem"><a class="listItem-link" href="/about.html">ACTUALITES</a></li>
                 <li class="listItem"><a class="listItem-link" href="/blog.html">INNOVATIONS</a></li>
                 <li class="listItem"><a class="listItem-link" href="/podcast.html">MARQUES</a></li>
-                <li class="listItem"><a class="listItem-link" href="/front/index.php">CONNEXION</a></li>
+                <li class="listItem"><a class="listItem-link adminLink" href="../index.php">ADMIN</a></li>
                 <li class="listItem"><input class="search" placeholder="Recherche"></a></li>
                 <a class="SearchLoup" href=""><img class="searchLogoimg" src="/front/img/search.png" alt=""></a>
             </ul>
@@ -66,15 +67,14 @@ else
     <section class="read">
 
       <div class="flexItem">
-          <p class="read_autorAndDate"><span class="bolder"></span><?=$author;?> - <?=$date;?></p>
+          <p class="read_autorAndDate"><?=$date;?></p>
           <p class="read_container_title bolder"><?=$titre;?></p>
           <p class="read_description_item"><?=$description;?></p>
+          <span class="read_autorAndDate"><?=$author;?></span>
       </div>
 
-      <div class="read_input_container">
-      <div class="read_input_item">
+
       </div>
       </div>
     </section>
 
-<!-- Footer -->

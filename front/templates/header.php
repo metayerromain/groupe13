@@ -21,7 +21,7 @@
                 <li class="listItem"><a class="listItem-link" href="/about.html">ACTUALITES</a></li>
                 <li class="listItem"><a class="listItem-link" href="/blog.html">INNOVATIONS</a></li>
                 <li class="listItem"><a class="listItem-link" href="/podcast.html">MARQUES</a></li>
-                <li class="listItem"><a class="listItem-link adminLink" href="/index.php">ADMIN</a></li>
+                <li class="listItem"><a class="listItem-link adminLink" href="../index.php">ADMIN</a></li>
                 <li class="listItem"><input class="search" placeholder="Recherche"></a></li>
                 <a class="SearchLoup" href=""><img class="searchLogoimg" src="/front/img/search.png" alt=""></a>
             </ul>

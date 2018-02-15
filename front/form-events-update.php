@@ -10,6 +10,11 @@ if (isset($_GET['id']))
     $req->execute();
     $row = $req->fetch(PDO::FETCH_ASSOC);
 
+    $count = $req->rowCount();
+    if($count == 0) {
+        echo "L'article n'existe pas !";
+        exit;
+    }
 }
 else
 {

@@ -4,6 +4,9 @@ require_once ('../helpers/database.php');
 
 $stmt = $conn->prepare("SELECT * FROM `articles-table`");
 $stmt->execute();
+
+$stmt2 = $conn->prepare("SELECT * FROM `articles-table` WHERE first = 1");
+$stmt2->execute();
 ?>
 <!-- Header -->
 
@@ -14,31 +17,30 @@ $stmt->execute();
   <section class="caroussel">
     <div class="slide">
 
-      <a href=""><div class="slide1 slide2">
-        <img class="slide3" src="/front/img/ferrari.jpg" alt="">
-        <div class="abosulute-text1">
-        <p class="textCarousel1">Perferendis dolor adipisci</p>
-        <p class="textCarousel2">Magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-           consectetur, adipisci velit, voluptatem.
-            Ut enim ad minima veniam, quis nostrum exercitationem ex ea commodi consequatur?</p>
-           <p class="textCarousel3">Posté aujourd'hui à 11h.</p></div></div></a>
-
-      <a href=""><div class="slide2">
-        <img class="slide3" src="/front/img/mercedes.jpg" alt="">
-        <div class="abosulute-text1">
-        <p class="textCarousel1">Ipsum adipisicing elit.</p>
-        <p class="textCarousel2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora sequi ipsam harum accusamus
-          quod sapiente corporis enim, perferendis dolor adipisci commodi asperiores optio placeat.
-           Deleniti ad rerum ipsa magnam distinctio!</p>
-           <p class="textCarousel3">Posté aujourd'hui à 17h.</p></div></div></a>
-
-      <a href=""><div class="slide2">
-        <img class="slide3" src="/front/img/photo.jpg" alt="">
-        <div class="abosulute-text1">
-        <p class="textCarousel1">Adipisci commodi asperiores.</p>
-        <p class="textCarousel2">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-        consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-           <p class="textCarousel3">Posté aujourd'hui à 16h.</p></div></div></a>
+        <?php
+        $i = 0;
+        while($row = $stmt2->fetch()) {
+            $id = $row["id"];
+            $title = $row["title"];
+            $author = $row["author"];
+            $date = $row["date"];
+            $img = $row["images"];
+            $dateformat = DateTime::createFromFormat('Y-m-d', $date);
+            $content = substr(strip_tags($row["content"]), 2, 180);
+            if($i == 0) $firstslide = "slide1";
+                else $firstslide = "";
+            echo '
+             <a href="">
+                 <div class="'.$firstslide.' slide2">
+                    <img class="slide3" src="'.$img.'" alt="" style="height: 100vh; width: 100%; object-fit: cover;">
+                    <div class="abosulute-text1" style="background-color: #00000069; padding: 30px;">
+                        <p class="textCarousel1" style="">'.$title.'</p>
+                        <p class="textCarousel2" style="width: 1000px !important;">'.$content.'...</p>
+                        <p class="textCarousel3" style="margin-left: 30px;">Ajouté le '.$dateformat->format('d/m/Y').'</p></div></div></a>
+            ';
+            $i++;
+        }
+        ?>
     </div>
     </section>
 
