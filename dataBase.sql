@@ -2,13 +2,14 @@
   DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;*/
 
 
-CREATE TABLE IF NOT EXISTS `roadr`.`article` (
+CREATE TABLE IF NOT EXISTS `roadr`.`articles-table` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `titre` VARCHAR(250) NOT NULL,
   `img` VARCHAR(250) NOT NULL,
-  `date` VARCHAR(50) NOT NULL,
-  `author` VARCHAR(50) NOT NULL,
-  `content` TEXT NOT NULL,
+  `date` VARCHAR(250) NOT NULL,
+  `author` VARCHAR(250) NOT NULL,
+  `content` LONGTEXT NOT NULL,
+  `first` INT NOT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -16,8 +17,8 @@ CREATE TABLE IF NOT EXISTS `roadr`.`events` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `titre` VARCHAR(250) NOT NULL,
   `lieu` VARCHAR(250) NOT NULL,
-  `date` VARCHAR(50) NOT NULL,
-  `description` VARCHAR(250) NOT NULL,
+  `date` VARCHAR(250) NOT NULL,
+  `description` LONGTEXT NOT NULL,
   `image` VARCHAR(250) NOT NULL,
   PRIMARY KEY (`id`)
 );
